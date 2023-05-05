@@ -22,7 +22,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('news.create');
     }
 
     /**
@@ -38,7 +38,13 @@ class NewsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $news = News::find($id);
+        if (!$news) {
+            abort(404);
+        }
+        return view('news.show', [
+            'news' => $news
+        ]);
     }
 
     /**
