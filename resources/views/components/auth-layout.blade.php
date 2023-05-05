@@ -7,7 +7,7 @@
     @vite('resources/js/app.js')
 </head>
 <body>
-    <div class="container">
+    <div class="container d-flex flex-column justify-content-center">
         {{ $slot }}
     </div>
 </body>

@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Auth;
-use App\Http\Controllers\News;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [News::class, 'index'])->name('news.index');
-Route::get('/{id}', [News::class, 'show'])->name('news.show');
-Route::get('/login', [Auth::class, 'index'])->name('auth.login');
-Route::post('/login', [Auth::class, 'authenticate'])->name('auth.authenticate');
-Route::get('/register', [Auth::class, 'create'])->name('auth.register');
-Route::get('/logout', [Auth::class, 'destroy'])->name('auth.logout');
-Route::resource('news', News::class)->except(['index', 'show'])->middleware(['auth']);
+Route::get('/', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/login', [AuthController::class, 'index'])->name('auth.login');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.authenticate');
+Route::get('/register', [AuthController::class, 'create'])->name('auth.register');
+Route::post('/register', [AuthController::class, 'store'])->name('auth.store');
+Route::get('/logout', [AuthController::class, 'destroy'])->name('auth.logout');
+Route::resource('news', NewsController::class)->except(['index', 'show'])->middleware(['auth']);
