@@ -7,7 +7,7 @@
       <form action="{{ route('auth.store') }}" method="post">
         @csrf
         <div class="form-floating mb-3">
-          <input id="name" class="form-control" type="text" placeholder="Name" value="{{ old('name') }}" required>
+          <input id="name" class="form-control" type="text" name="name" placeholder="Name" value="{{ old('name') }}" required>
           <label for="name">Name</label>
         </div>
         <div class="form-floating mb-3">
@@ -18,13 +18,17 @@
           <input id="password" class="form-control" type="password" name="password" placeholder="Password" value="" required>
           <label for="password">Password</label>
         </div>
+        <div class="form-floating mb-3">
+          <input id="password_confirmation" class="form-control" type="password" name="password_confirmation" placeholder="Confirm Password" required>
+          <label for="password_confirmation">Confirm Password</label>
+        </div>
         <div class="mb-3">
           <button class="btn btn-dark w-100">Register</button>
         </div>
-        <div>
+        <div class="fw-light">
           <span>
-            Sudah punya akun? <a href="{{ route('auth.login') }}">Masuk</a>
-            atau kembali ke halaman <a href="{{ route('news.index') }}">berita</a>.
+            Already have an account? <a href="{{ route('auth.login') }}">Login now</a>
+            or return to <a href="{{ route('news.index') }}">the news page</a>
           </span>
         </div>
       </form>

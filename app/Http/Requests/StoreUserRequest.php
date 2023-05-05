@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreUserRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return !Auth::check();
     }
 
     /**
@@ -22,7 +23,26 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => [
+                'required',
+                'min:6',
+                'unique:App\Models\User,name'
+            ],
+            'email' => [
+                'required',
+                'min:6',
+                'email',
+                'unique:App\Models\User,email'
+            ],
+            'password' => [
+                'required',
+                'min:6',
+                'confirmed',
+            ],
+            'password_confirmation' => [
+                'required',
+                'min:6'
+            ]
         ];
     }
 }

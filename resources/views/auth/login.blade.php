@@ -17,10 +17,10 @@
         <div class="mb-3">
           <button class="btn btn-dark w-100">Login</button>
         </div>
-        <div>
+        <div class="fw-light">
           <span>
-            Belum punya akun? <a href="{{ route('auth.register') }}">Daftar</a>
-            atau kembali ke halaman <a href="{{ route('news.index') }}">berita</a>.
+            You don't have an account yet? <a href="{{ route('auth.register') }}">Register now</a>
+            or return to <a href="{{ route('news.index') }}">the news page</a>
           </span>
         </div>
       </form>
