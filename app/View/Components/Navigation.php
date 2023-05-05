@@ -4,9 +4,10 @@ namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 
-class Layout extends Component
+class Navigation extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +22,8 @@ class Layout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.layout');
+        return view('components.navigation', [
+            'isLogin' => Auth::check()
+        ]);
     }
 }

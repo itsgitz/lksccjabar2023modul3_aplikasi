@@ -6,7 +6,7 @@
   <div class="py-3">
     @if ($news->empty())
     <div class="alert alert-warning">
-      There's no news here :(
+      News not found :(
     </div>
     @else
     <div>
