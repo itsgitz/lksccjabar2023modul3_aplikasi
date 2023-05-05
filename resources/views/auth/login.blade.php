@@ -1,19 +1,7 @@
 <x-auth-layout>
   <x-slot:title>Login</x-slot:title>
-  <div class="py-3 text-center">
-    <h3>Masuk untuk Menulis Berita</h3>
-  </div>
-  <div>
-    @if ($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $e)
-        <li>{{ $e }}</li>
-        @endforeach
-      </ul>
-    </div>
-    @endif
-  </div>
+  <x-auth-title>Masuk untuk Menulis Berita</x-auth-title>
+  <x-auth-message-errors />
   <div class="row justify-content-center">
     <div class="col-md-3">
       <form action="{{ route('auth.login') }}" method="post">
@@ -28,6 +16,12 @@
         </div>
         <div class="mb-3">
           <button class="btn btn-dark w-100">Login</button>
+        </div>
+        <div>
+          <span>
+            Belum punya akun? <a href="{{ route('auth.register') }}">Daftar</a>
+            atau kembali ke halaman <a href="{{ route('news.index') }}">berita</a>.
+          </span>
         </div>
       </form>
     </div>
