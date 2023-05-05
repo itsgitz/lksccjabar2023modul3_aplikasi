@@ -8,7 +8,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
   <main class="container">
-    <nav class="navbar navbar-expand-lg bg-secondary">
+    <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand text-white" href="{{ route('news.index') }}">LKS Jabar 2023 News</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation">

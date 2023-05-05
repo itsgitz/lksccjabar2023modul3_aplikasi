@@ -1,4 +1,4 @@
-<footer class="footer mt-auto py-3 container bg-secondary text-center">
+<footer class="footer mt-auto py-3 container bg-dark text-center">
   <span class="fw-light text-light">
     Powered by
     <a class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://infinyscloud.com/id" target="_blank">
