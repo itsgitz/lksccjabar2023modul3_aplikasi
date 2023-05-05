@@ -5,8 +5,12 @@
   </div>
   <div class="py-3">
     @if ($news->empty())
-    <div class="alert alert-warning">
-      News not found :(
+    <div class="my-3">
+      <div class="py-3">
+        <div class="alert alert-warning">
+          News not found, please write yours <a href="{{ route('news.create') }}">here</a>!
+        </div>
+      </div>
     </div>
     @else
     <div>
