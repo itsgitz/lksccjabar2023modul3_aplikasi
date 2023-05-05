@@ -1,6 +1,6 @@
 <x-auth-layout>
-  <x-slot:title>Login</x-slot:title>
-  <x-auth-title>Masuk untuk Menulis Berita</x-auth-title>
+  <x-slot:title>Sign in for Write the News</x-slot:title>
+  <x-auth-title>Sign in for Write the News</x-auth-title>
   <x-auth-message-errors />
   <div class="row justify-content-center">
     <div class="col-md-3">

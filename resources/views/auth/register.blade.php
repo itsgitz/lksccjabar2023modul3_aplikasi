@@ -1,6 +1,6 @@
 <x-auth-layout>
-  <x-slot:title>Login</x-slot:title>
-  <x-auth-title>Daftar Sebagai Penulis</x-auth-title>
+  <x-slot:title>Sign up for Become a News Writer</x-slot:title>
+  <x-auth-title>Sign up for Become a News Writer</x-auth-title>
   <x-auth-message-errors />
   <div class="row justify-content-center">
     <div class="col-md-3">
@@ -27,7 +27,7 @@
         </div>
         <div class="fw-light">
           <span>
-            Already have an account? <a href="{{ route('auth.login') }}">Login now</a>
+            Already have an account? <a href="{{ route('auth.login') }}">Sign in now</a>
             or return to <a href="{{ route('news.index') }}">the news page</a>
           </span>
         </div>

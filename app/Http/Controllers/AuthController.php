@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +22,11 @@ class AuthController extends Controller
     public function store(StoreUserRequest $request)
     {
         $validated = $request->validated();
-        dd($validated);
+        User::createUser($validated);
+
+        return redirect()
+            ->route('news.index')
+            ->with('status_success', 'Your account has been created!');
     }
 
     public function authenticate(Request $request)
