@@ -27,7 +27,7 @@
           <label for="password">Password</label>
         </div>
         <div class="mb-3">
-          <button class="btn btn-dark w-100">Register</button>
+          <button class="btn btn-dark w-100">Login</button>
         </div>
       </form>
     </div>
