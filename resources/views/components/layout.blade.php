@@ -9,6 +9,7 @@
 <body class="d-flex flex-column min-vh-100">
   <main class="container">
     <x-navigation />
+    <x-signed-in-status />
     {{ $slot }}
   </main>
   <x-footer />

@@ -3,8 +3,8 @@
   <div>
     <x-status-message />
   </div>
-  <div class="py-3"></div>
-  <div class="p-3">
+  <div class="py-2"></div>
+  <div class="p-1">
     @if ($news->isEmpty())
     <div class="py-3">
       <div class="alert alert-warning">
