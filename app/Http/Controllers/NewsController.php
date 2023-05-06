@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreNewsRequest;
+use App\Http\Requests\UpdateNewsRequest;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -72,15 +73,27 @@ class NewsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $news = News::find($id);
+        if (!$news) {
+            abort(404);
+        }
+        return view('news.edit', [
+            'news' => $news
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateNewsRequest $request, string $id)
     {
-        //
+        $validated = $request->validated();
+        $validated['id'] = $id;
+        News::editNews($validated);
+
+        return redirect()
+            ->route('news.edit', ['news' => $id])
+            ->with('status_success', 'Successfully updated news!');
     }
 
     /**

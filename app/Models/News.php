@@ -24,4 +24,14 @@ class News extends Model
         $news->image_url    = $data['saved_image_url'];
         $news->save();
     }
+
+    public static function editNews(array $data)
+    {
+        $news = self::find($data['id']);
+        $news->user_id      = $news->user_id;
+        $news->title        = $data['title'];
+        $news->content      = $data['content'];
+        $news->image_url    = $news->image_url;
+        $news->save();
+    }
 }
