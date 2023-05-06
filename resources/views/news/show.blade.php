@@ -20,6 +20,10 @@
     </div>
   </div>
   <div class="py-3">
-    <a href="{{ route('news.index') }}">Back</a>
+    <a class="btn btn-sm btn-secondary" href="{{ route('news.index') }}">Back</a>
+    @if (Auth::check())
+    <a class="btn btn-sm btn-warning" href="{{ route('news.edit', ['news' => $news->id]) }}">Edit</a>
+    <a class="btn btn-sm btn-danger" href="{{ route('news.destroy', ['news' => $news->id]) }}">Remove</a>
+    @endif
   </div>
 </x-layout>
