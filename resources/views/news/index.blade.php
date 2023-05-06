@@ -14,7 +14,7 @@
     @else
     <div class="m-auto">
       @foreach ($news as $n)
-      <div class="d-flex mb-3 rouded border-bottom px-2 py-3">
+      <div class="d-flex mb-3 rouded border-bottom px-2 py-3 gap-3">
         <div class="">
           <h4 class="fw-bold">{{ $n->title }}</h4>
           <div>
@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="ms-auto">
-          <img class="img-fluid" src="{{ $n->image_url }}" width="112" height="112">
+          <img class="img-fluid" src="{{ $n->image_url }}" width="112">
         </div>
       </div>
       @endforeach
