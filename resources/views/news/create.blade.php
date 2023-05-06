@@ -19,8 +19,8 @@
           <input id="imageUrl" class="form-control" type="file" name="image_url" required>
         </div>
         <div class="mb-3 col-md-4">
-          <a class="btn btn-danger" href="{{ route('news.index') }}">Cancel</a>
-          <button class="btn btn-primary" type="submit">Save</button>
+          <a class="btn btn-sm btn-danger" href="{{ route('news.index') }}">Cancel</a>
+          <button class="btn btn-sm btn-primary" type="submit">Save</button>
         </div>
       </form>
     </div>
