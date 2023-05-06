@@ -26,6 +26,7 @@
             <div class="py-3"></div>
             <div class="py-2">
               <a class="btn btn-sm btn-success" href="{{ route('news.show', ['id' => $n->id]) }}">Read more</a>
+              <x-edit-remove-buttons id="{{ $n->id }}" />
             </div>
           </div>
           <div class="ms-auto">
