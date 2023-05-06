@@ -34,4 +34,13 @@ class News extends Model
         $news->image_url    = $news->image_url;
         $news->save();
     }
+
+    public static function deleteNews(string $id): string
+    {
+        $news = self::find($id);
+        $imageUrl = $news->image_url;
+        $news->delete();
+
+        return $imageUrl;
+    }
 }

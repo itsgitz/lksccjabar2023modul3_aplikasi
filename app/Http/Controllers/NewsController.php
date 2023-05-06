@@ -101,6 +101,12 @@ class NewsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $imageUrl = News::deleteNews($id);
+        $fileName = explode('/', $imageUrl);
+        $storedImage = sprintf('public/%s', $fileName['2']);
+        Storage::delete($storedImage);
+        return redirect()
+            ->route('news.index')
+            ->with('status_success', 'Successfully deleted news!');
     }
 }
