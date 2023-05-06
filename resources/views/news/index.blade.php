@@ -15,24 +15,22 @@
     <div class="m-auto">
       @foreach ($news as $n)
       <div class="d-flex mb-3 rouded border-bottom px-2 py-3 gap-3">
-        <a class="text-dark text-decoration-none" href="{{ route('news.show', ['id' => $n->id]) }}">
-          <div class="">
-            <h4 class="fw-bold">{{ $n->title }}</h4>
-            <div>
-              <span class="fw-light">
-                {{ $n->user->name }} - {{ date_format($n->created_at, 'Y/m/d H:i:s') }} &#11088;
-              </span>
-            </div>
-            <div class="py-3"></div>
-            <div class="py-2">
-              <a class="btn btn-sm btn-success" href="{{ route('news.show', ['id' => $n->id]) }}">Read more</a>
-              <x-edit-remove-buttons id="{{ $n->id }}" />
-            </div>
+        <div class="">
+          <h4 class="fw-bold">{{ $n->title }}</h4>
+          <div>
+            <span class="fw-light">
+              {{ $n->user->name }} - {{ date_format($n->created_at, 'Y/m/d H:i:s') }} &#11088;
+            </span>
           </div>
-          <div class="ms-auto">
-            <img class="img-fluid" src="{{ $n->image_url }}" width="112">
+          <div class="py-3"></div>
+          <div class="py-2">
+            <a class="btn btn-sm btn-success" href="{{ route('news.show', ['news' => $n->id]) }}">Read more</a>
+            <x-edit-remove-buttons id="{{ $n->id }}" />
           </div>
-        </a>
+        </div>
+        <div class="ms-auto">
+          <img class="img-fluid" src="{{ $n->image_url }}" width="112">
+        </div>
       </div>
       @endforeach
     </div>

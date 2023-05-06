@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [NewsController::class, 'index'])->name('news.index');
-Route::get('/news/read/{id}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/news/read/{news}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/news/delete/{news}', [NewsController::class, 'destroy'])->name('news.destroy');
 Route::get('/login', [AuthController::class, 'index'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('auth.authenticate');
 Route::get('/register', [AuthController::class, 'create'])->name('auth.register');
 Route::post('/register', [AuthController::class, 'store'])->name('auth.store');
 Route::get('/logout', [AuthController::class, 'destroy'])->name('auth.logout');
-Route::resource('news', NewsController::class)->except(['index', 'show'])->middleware(['auth']);
+Route::resource('news', NewsController::class)->except(['index', 'show', 'destroy'])->middleware(['auth']);
