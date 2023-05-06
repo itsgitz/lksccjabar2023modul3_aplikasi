@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreNewsRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreNewsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -22,7 +23,19 @@ class StoreNewsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => [
+                'required',
+                'min:6',
+                'unique:App\Models\News,title'
+            ],
+            'content' => [
+                'required',
+                'min:10',
+            ],
+            'image_url' => [
+                'required',
+                'image'
+            ]
         ];
     }
 }

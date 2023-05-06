@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreNewsRequest;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -28,9 +31,26 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreNewsRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $fileName = sprintf('%s-%s',
+            str_replace(' ', '_', strtolower($validated['title'])),
+            $validated['image_url']->getClientOriginalName()
+        );
+        $saveFile = Storage::putFileAs(
+            'public',
+            $validated['image_url'],
+            $fileName
+        );
+        $validated['saved_image_url'] = Storage::url($saveFile);
+        $validated['user_id'] = Auth::id();
+
+        News::createNews($validated);
+
+        return redirect()
+            ->route('news.index')
+            ->with('status_success', 'Successfully added news!');
     }
 
     /**
