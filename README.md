@@ -18,5 +18,5 @@ SESSION_DRIVER=dynamodb
 AWS_ACCESS_KEY_ID=[your_aws_access_key_id]
 AWS_SECRET_ACCESS_KEY=[your_aws_secret_access_key]
 AWS_DEFAULT_REGION=[required_region]
-DYNAMODB_CACHE_TABLE=lksccjabar2023-dynamodb
+DYNAMODB_CACHE_TABLE=[your_dynamodb_table]
 ```
